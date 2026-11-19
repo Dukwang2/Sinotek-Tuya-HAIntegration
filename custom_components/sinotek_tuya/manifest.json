@@ -1,7 +1,7 @@
 {
   "domain": "sinotek_tuya",
   "name": "Sinotek Tuya Charger",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "config_flow": true,
   "dependencies": [
     "network"

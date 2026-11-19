@@ -1,5 +1,6 @@
 # Sinotek Tuya Charger for Home Assistant
 
+**Note: This integration is still in Beta.**
 Development build for Sinotek Wi-Fi EV chargers based on the Sinotek DP definitions. The integration uses TinyTuya for the Tuya LAN protocol, active discovery and optional cloud key lookup. The setup and datapoint model are informed by the existing hass-localtuya installation. Protocol versions 3.1–3.5 are accepted, with 3.5 used by the Sinotek chargers tested so far.
 
 ## Install a development copy
@@ -18,15 +19,11 @@ The charger must be reachable from HA on the LAN. Discovery uses UDP 6666, 6667 
 
 Open the existing charger entry's menu and select **Reconfigure** to change its local IP or protocol. Provide a replacement Local Key only when needed. Sinotek verifies the connection before saving and reloads the existing entry, retaining its device and entity IDs.
 
-For upgrades from a deployment with standalone entries linked by cloud account ID, stop HA, back up the configuration directory and run `python tools/migrate_cloud_subentries.py CONFIG/.storage BACKUP_DIR` before starting HA with this version. This moves linked entries under the account while retaining the existing device and entity IDs.
-
 ## Entities
 
 The existing LocalTuya DP and display mappings are implemented as native entities attached to the charger. Sensor names are relative to the device. Widgets and automations use readable states and numeric values with units. Raw DP values stay internal. Optional sensors appear after their source data is first reported. Start/pause and approval remain separate actions, and the charging current slider uses 1 A steps from 6 A up to 32 A, capped by reported device limits and the configured maximum. The maximum charging current setting uses the DP 107 presets. Start/pause displays unknown until the charger reports DP 140.
 
 The device page shows both current settings in Controls above Sensors. Home Assistant fixes the order of its native sections. The integration uses the Tuya icons from the Home Assistant brands repository via the local brand directory (Home Assistant 2026.3+).
-
-This is an unreleased development integration. Marketplace distribution, ownership-based key provisioning, and write-path hardware acceptance are separate release work.
 
 ### Datapoint coverage
 
