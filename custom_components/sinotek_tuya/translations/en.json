@@ -1,0 +1,139 @@
+{
+  "config": {
+    "step": {
+      "import": {
+        "title": "Import TinyTuya keys",
+        "description": "Paste the contents of your existing devices.json file. Keep this file private.",
+        "data": {
+          "devices_json": "Devices JSON"
+        }
+      },
+      "cloud": {
+        "title": "Tuya Cloud API account configuration",
+        "description": "Enter your project credentials and the User ID (UID) from the linked Tuya Smart or Smart Life app account.",
+        "data": {
+          "region": "Region",
+          "access_id": "Access ID",
+          "access_secret": "Access secret",
+          "user_id": "User ID (UID)",
+          "name": "Account name"
+        }
+      },
+      "discover": {
+        "title": "Choose a charger",
+        "description": "Select a discovered device. To go straight to confirmation, start with imported keys or a cloud project.",
+        "data": {
+          "device": "Device"
+        }
+      },
+      "confirm": {
+        "title": "Add {name}",
+        "description": "Connect to {host} using Tuya {version} and create the charger controls and sensors."
+      },
+      "manual": {
+        "title": "Charger connection",
+        "data": {
+          "name": "Name",
+          "host": "Local IP",
+          "device_id": "Device ID",
+          "local_key": "Local Key",
+          "version": "Tuya protocol"
+        }
+      },
+      "methods": {
+        "title": "Set up Sinotek",
+        "menu_options": {
+          "cloud": "Add Tuya Cloud account",
+          "discover": "Discover on the local network",
+          "import": "Import existing TinyTuya keys",
+          "manual": "Enter a device manually"
+        }
+      },
+      "account": {
+        "title": "Choose a Tuya Cloud account",
+        "data": {
+          "account": "Cloud account"
+        }
+      },
+      "reconfigure_cloud": {
+        "title": "Update Tuya Cloud account",
+        "description": "Leave Access Secret blank to keep the saved secret.",
+        "data": {
+          "region": "Region",
+          "access_id": "Access ID",
+          "access_secret": "Access secret",
+          "user_id": "User ID (UID)",
+          "name": "Account name"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure charger connection",
+        "description": "Update the charger IP address or protocol. Leave Local Key blank to keep the saved key.",
+        "data": {
+          "host": "Local IP",
+          "version": "Tuya protocol",
+          "local_key": "Local Key"
+        }
+      },
+      "user": {
+        "title": "Add a Sinotek charger",
+        "menu_options": {
+          "saved_cloud": "Use saved Tuya Cloud account",
+          "methods": "Other setup methods"
+        }
+      }
+    },
+    "error": {
+      "invalid_import": "The file did not contain any usable device keys.",
+      "cloud_failed": "The Tuya project did not return usable device keys.",
+      "invalid_key": "Enter the 16-byte local key for this device.",
+      "cannot_connect": "Could not read the charger. Check its IP, protocol and local key."
+    },
+    "abort": {
+      "already_configured": "This charger is already configured.",
+      "reconfigure_successful": "Configuration updated successfully.",
+      "charger_added": "Charger added under its Tuya Cloud account.",
+      "account_removed": "The selected cloud account was removed. Start over to choose another account."
+    }
+  },
+  "config_subentries": {
+    "charger": {
+      "abort": {
+        "already_configured": "This charger is already configured.",
+        "cloud_failed": "Could not read the Tuya Cloud account.",
+        "no_devices": "No additional devices were found for this account."
+      },
+      "step": {
+        "connection": {
+          "data": {
+            "host": "Local IP",
+            "version": "Tuya protocol",
+            "local_key": "Local Key"
+          },
+          "title": "Charger connection"
+        },
+        "reconfigure": {
+          "title": "Reconfigure charger connection",
+          "description": "Update the charger IP address or protocol. Leave Local Key blank to keep the saved key.",
+          "data": {
+            "host": "Local IP",
+            "version": "Tuya protocol",
+            "local_key": "Local Key"
+          }
+        },
+        "user": {
+          "data": {
+            "device": "Charger"
+          },
+          "title": "Choose a charger"
+        }
+      },
+      "error": {
+        "invalid_import": "The file did not contain any usable device keys.",
+        "cloud_failed": "The Tuya project did not return usable device keys.",
+        "invalid_key": "Enter the 16-byte local key for this device.",
+        "cannot_connect": "Could not read the charger. Check its IP, protocol and local key."
+      }
+    }
+  }
+}
