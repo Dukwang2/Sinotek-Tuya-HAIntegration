@@ -151,9 +151,9 @@ def readings(dps):
     for i, name in enumerate(("Wall Plug", "Control Box", "EV Connector")):
         temp = field(data.get("113"), i)
         if type(temp) in (int, float) and temp <= 400:
-            num(f"{name} Temperature", temp, "°C", "temperature")
+            num(f"Temperature - {name}", temp, "°C", "temperature")
     for i, name in enumerate(("Ground", "Relay", "Leakage")):
-        add(f"{name} Self Test", {0: "Failed", 1: "Passed"}.get(field(data.get("103"), "r", i)))
+        add(f"Self Test - {name}", {0: "Failed", 1: "Passed"}.get(field(data.get("103"), "r", i)))
     for i in range(3):
         phase = f"L{i + 1}"
         meter = data.get("121")
