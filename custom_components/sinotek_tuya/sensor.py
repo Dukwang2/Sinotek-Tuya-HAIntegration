@@ -7,6 +7,12 @@ from homeassistant.util import slugify
 from .entity import ChargerEntity
 from .profile import readings
 
+# Use reading names from profile.py. Hidden sensors still provide states for
+# templates and automations; users can change visibility in Home Assistant.
+HIDDEN_READINGS = {
+    "Market",  # DP 114 (x_us_eu): US / EU
+}
+
 
 async def async_setup_entry(hass, entry, async_add_entities):
     for coordinator in entry.runtime_data:
@@ -39,6 +45,7 @@ class ChargerSensor(ChargerEntity, SensorEntity):
     def __init__(self, coordinator, name, unit, cls):
         super().__init__(coordinator, slugify(name), name)
         self._reading = name
+        self._attr_entity_registry_visible_default = name not in HIDDEN_READINGS
         self._attr_native_unit_of_measurement = unit
         self._attr_device_class = cls
 
