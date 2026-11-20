@@ -54,7 +54,7 @@ class ChargerSensor(ChargerEntity, SensorEntity):
     def __init__(self, coordinator, name, unit, cls):
         super().__init__(coordinator, slugify(name), name)
         self._reading = name
-        self._attr_entity_registry_visible_default = name not in HIDDEN_READINGS
+        self._attr_entity_registry_enabled_default = name not in HIDDEN_READINGS
         self._attr_native_unit_of_measurement = unit
         self._attr_device_class = cls
 
