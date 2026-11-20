@@ -10,7 +10,16 @@ from .profile import readings
 # Use reading names from profile.py. Hidden sensors still provide states for
 # templates and automations; users can change visibility in Home Assistant.
 HIDDEN_READINGS = {
+    "Session Cost",  # DP 102 (x_metrics`c`): Cost of current session
+    "Schedule Savings",  # DP 102 (x_metrics`s`): Savings from schedule
+    "RCD Type",  # DP 106 (x_charger_info`r`): RCD type (0 = None, 1 = Type A, 2 = Type B)
+    "Diagnostic Work State",  # DP 109 (`x_work_st_debug): Diagnostic work state
     "Market",  # DP 114 (x_us_eu): US / EU
+    "Customer Contact",  # DP 116 (x_contact): Customer contact number
+    "Firmware Debug",  # DP 153 (x_lang_cfg): Firmware debug info
+    "Legacy NFC Setting",  # DP 155 (x_nfc_cfg): Legacy NFC setting
+    "Product Capabilities",  # DP 157 (x_product_variant): Product capabilities
+    "Temperature Mode (reserved)",  # DP 161 (x_temp_mode): Temperature mode
 }
 
 
