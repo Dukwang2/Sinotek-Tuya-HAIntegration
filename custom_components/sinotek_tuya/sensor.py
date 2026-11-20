@@ -20,6 +20,7 @@ HIDDEN_READINGS = {
     "Legacy NFC Setting",  # DP 155 (x_nfc_cfg): Legacy NFC setting
     "Product Capabilities",  # DP 157 (x_product_variant): Product capabilities
     "Temperature Mode (reserved)",  # DP 161 (x_temp_mode): Temperature mode
+    "Currency", # DP 165 (x_unit): Currency
 }
 
 
